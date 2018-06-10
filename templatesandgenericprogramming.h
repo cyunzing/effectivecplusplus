@@ -77,4 +77,19 @@ void advance(IterT &iter, DistT d)
     doAdvance(iter, d, std::iterator_traits<IterT>::iterator_category());
 }
 
+//48
+template<unsigned n>
+struct Factorial {
+    enum {
+        value = n * Factorial<n - 1>::value
+    };
+};
+
+template<>
+struct Factorial<0> {
+    enum {
+        value = 1
+    };
+};
+
 #endif // TEMPLATESANDGENERICPROGRAMMING_H
